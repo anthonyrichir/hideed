@@ -1,0 +1,23 @@
+// JDL definition for application 'MapOptional' generated with command 'jhipster export-jdl'
+
+entity DailyActivity (activity) {
+  date ZonedDateTime required,
+  cleanedDishes Boolean,
+  filledDishWasher Boolean,
+  emptiedDishWasher Boolean,
+  preparedDinner Boolean,
+  preparedBabyFood Boolean,
+  preparedLaundry Boolean,
+  didLaundry Boolean,
+  ironning Boolean,
+  tidyingUp Boolean,
+  madeBed Boolean
+}
+
+relationship ManyToOne {
+  DailyActivity{user(login) required} to User
+}
+
+paginate DailyActivity with infinite-scroll
+dto DailyActivity with mapstruct
+service DailyActivity with serviceClass
